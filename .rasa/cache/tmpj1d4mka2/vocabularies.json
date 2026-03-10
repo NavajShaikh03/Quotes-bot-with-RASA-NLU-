@@ -1,0 +1,53 @@
+{
+  "text": {
+    "hi": 10,
+    "hello": 8,
+    "hey": 9,
+    "good": 4,
+    "morning": 14,
+    "i": 11,
+    "am": 0,
+    "sad": 18,
+    "feel": 3,
+    "stressed": 20,
+    "motivate": 15,
+    "me": 13,
+    "very": 22,
+    "happy": 7,
+    "depressed": 2,
+    "great": 6,
+    "today": 21,
+    "need": 17,
+    "motivation": 16,
+    "bye": 1,
+    "goodbye": 5,
+    "see": 19,
+    "you": 23,
+    "later": 12
+  },
+  "intent": {
+    "greet": 1,
+    "mood": 2,
+    "goodbye": 0
+  },
+  "response": null,
+  "action_name": {
+    "action_listen": 6,
+    "action_restart": 8,
+    "action_session_start": 10,
+    "action_default_fallback": 4,
+    "action_deactivate_loop": 1,
+    "action_revert_fallback_events": 9,
+    "action_default_ask_affirmation": 2,
+    "action_default_ask_rephrase": 3,
+    "action_two_stage_fallback": 11,
+    "action_unlikely_intent": 12,
+    "action_back": 0,
+    "action_extract_slots": 5,
+    "action_recommend_quote": 7,
+    "utter_goodbye": 13,
+    "utter_greet": 14
+  },
+  "action_text": null,
+  "intent_response_key": null
+}

@@ -1,0 +1,39 @@
+version: "3.1"
+
+rules:
+
+- rule: respond to greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: respond to goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: respond to happy emotion
+  steps:
+  - intent: emotion_happy
+  - action: utter_happy_quote
+
+- rule: respond to sad emotion
+  steps:
+  - intent: emotion_sad
+  - action: utter_sad_quote
+
+- rule: respond to motivation request
+  steps:
+  - intent: emotion_motivation
+  - action: utter_motivation_quote
+
+- rule: respond to affirm
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- rule: respond to deny
+  steps:
+  - intent: deny
+  - action: utter_deny
+

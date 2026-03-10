@@ -1,0 +1,30 @@
+{
+  "sad": [
+    "Every storm runs out of rain.",
+    "You are stronger than you think.",
+    "Difficult roads lead to beautiful destinations.",
+    "Every day may not be good, but there is something good in every day.",
+    "Your present situation is not your final destination.",
+    "This too shall pass. Keep going.",
+    "Sometimes the smallest step in the right direction ends up being the biggest step of your life."
+  ],
+
+  "happy": [
+    "Happiness depends upon ourselves.",
+    "Smile, it makes life beautiful.",
+    "Your joy is contagious.",
+    "Happiness is a journey, not a destination.",
+    "Smile, it's a beautiful day.",
+    "The happiness of your life depends upon the quality of your thoughts."
+  ],
+
+  "motivation": [
+    "Push yourself because no one else will do it for you.",
+    "Dream big and dare to fail.",
+    "Success starts with self-discipline.",
+    "Success doesn't just find you. You have to go out and get it.",
+    "Dream it. Wish it. Do it.",
+    "The only way to do great work is to love what you do.",
+    "Believe you can and you're halfway there."
+  ]
+}

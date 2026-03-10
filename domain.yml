@@ -1,0 +1,78 @@
+version: "3.1"
+
+intents:
+  - greet
+  - emotion_happy
+  - emotion_sad
+  - emotion_motivation
+  - goodbye
+  - affirm
+  - deny
+
+responses:
+
+  utter_greet:
+  - text: "Hello! Tell me how you're feeling today (happy, sad, or need motivation)."
+  - text: "Hi there. Share your mood and I’ll send you a quote."
+  - text: "Hey! How are you feeling today?"
+  - text: "Hello! Tell me if you're feeling happy, sad, or motivated."
+
+  utter_goodbye:
+  - text: "Goodbye! Keep shining."
+  - text: "Bye! Take care of yourself."
+  - text: "See you later. Stay positive."
+  - text: "Farewell. One step at a time."
+  - text: "Goodbye! You’ve got this."
+
+  utter_happy_quote:
+  - text: "Happiness depends upon ourselves."
+  - text: "Smile, it makes life beautiful."
+  - text: "Choose joy—again and again."
+  - text: "Celebrate the little wins."
+  - text: "Your joy is contagious. Share it."
+  - text: "Gratitude turns what we have into enough."
+  - text: "Let your light be louder than your doubts."
+  - text: "Today is a good day to be proud of yourself."
+  - text: "Keep doing what makes your soul feel alive."
+  - text: "When you focus on the good, the good gets better."
+  - text: "Happiness is a journey, not a destination."
+  - text: "Stay close to what feels like sunshine."
+
+  utter_sad_quote:
+  - text: "Every storm runs out of rain."
+  - text: "This too shall pass. Keep going."
+  - text: "You are stronger than you think."
+  - text: "Small steps still move you forward."
+  - text: "Be gentle with yourself—you’re doing your best."
+  - text: "You’ve survived 100% of your hardest days."
+  - text: "Breathe. You don’t have to do it all at once."
+  - text: "Difficult roads lead to beautiful destinations."
+  - text: "Even the darkest night will end and the sun will rise."
+  - text: "Healing is not linear. Keep showing up."
+  - text: "Your feelings are valid—and they will change."
+  - text: "One day at a time. One moment at a time."
+
+  utter_motivation_quote:
+  - text: "Push yourself, because no one else will do it for you."
+  - text: "Dream big and dare to fail."
+  - text: "Success starts with self-discipline."
+  - text: "Don’t wait for opportunity. Create it."
+  - text: "The future depends on what you do today."
+  - text: "Start where you are. Use what you have. Do what you can."
+  - text: "Action is the antidote to fear."
+  - text: "Consistency beats intensity."
+  - text: "Believe you can, and you’re halfway there."
+  - text: "Keep going. Your future self will thank you."
+  - text: "Progress, not perfection."
+  - text: "You don’t have to be great to start—but you have to start."
+
+  utter_affirm:
+  - text: "Great. Tell me how you are feeling today."
+
+  utter_deny:
+  - text: "No problem. Share your mood any time and I will suggest a quote."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+

@@ -1,0 +1,67 @@
+# Improved RASA Configuration
+# Optimized pipeline for better intent recognition and fallback handling
+
+language: en
+
+pipeline:
+  # Tokenization
+  - name: WhitespaceTokenizer
+    intent_tokenization_flag: true
+    intent_split_symbol: "_"
+
+  # Regex features for pattern matching
+  - name: RegexFeaturizer
+
+  # Lexical features
+  - name: LexicalSyntacticFeaturizer
+
+  # Bag of words features
+  - name: CountVectorsFeaturizer
+    analyzer: word
+    min_ngram: 1
+    max_ngram: 3
+    OOV_token: oov
+
+  # Intent classification with fallback
+  - name: DIETClassifier
+    epochs: 150
+    learning_rate: 0.001
+    constrain_similarities: true
+    entity_recognition: false
+    # Fallback settings
+    fallback_threshold: 0.7
+    ambiguity_threshold: 0.1
+
+  # Synonym mapping
+  - name: EntitySynonymMapper
+
+  # Response selection
+  - name: ResponseSelector
+    retrieval_intent: greet
+    epochs: 100
+
+  # Fallback classifier for unknown intents
+  - name: FallbackClassifier
+    threshold: 0.7
+
+policies:
+  # Rule-based policies
+  - name: RulePolicy
+    # Confidence threshold for rule application
+    rule_priority: 100
+    # Enable_fallback: true
+
+  # Memoization for remembering stories
+  - name: MemoizationPolicy
+    max_history: 5
+
+  # Machine learning policy
+  - name: TEDPolicy
+    epochs: 150
+    max_history: 8
+    constrain_similarities: true
+
+# Session configuration
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

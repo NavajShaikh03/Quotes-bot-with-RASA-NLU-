@@ -1,0 +1,81 @@
+import json
+import random
+import os
+import logging
+
+from rasa_sdk import Action
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk import Tracker
+
+from textblob import TextBlob
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+
+class ActionRecommendQuote(Action):
+    def name(self):
+        return "action_recommend_quote"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: dict):
+
+        user_text = tracker.latest_message.get("text")
+
+        # Analyze sentiment
+        analysis = TextBlob(user_text)
+        polarity = analysis.sentiment.polarity
+
+        if polarity < -0.3:
+            mood = "sad"
+        elif polarity > 0.3:
+            mood = "happy"
+        else:
+            mood = "motivation"
+
+        # Load quotes from quotes/quotes.json (primary) or app/data/quotes.json (fallback)
+        quotes = None
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        quotes_path = os.path.join(base_dir, "quotes", "quotes.json")
+        
+        try:
+            with open(quotes_path, encoding='utf-8') as f:
+                quotes = json.load(f)
+                logger.info(f"Successfully loaded quotes from {quotes_path}")
+        except FileNotFoundError:
+            logger.warning(f"Quotes file not found at {quotes_path}, trying alternative path")
+            # Try alternative path
+            alt_path = os.path.join(base_dir, "app", "data", "quotes.json")
+            try:
+                with open(alt_path, encoding='utf-8') as f:
+                    quotes = json.load(f)
+                    logger.info(f"Successfully loaded quotes from alternative path {alt_path}")
+            except (FileNotFoundError, IOError) as e:
+                logger.warning(f"Alternative quotes file not found: {e}")
+        except json.JSONDecodeError as e:
+            logger.error(f"Invalid JSON in quotes file: {e}")
+        except IOError as e:
+            logger.error(f"Error reading quotes file: {e}")
+        
+        # Fallback quotes if none of the paths work
+        if quotes is None:
+            quotes = {
+                "sad": ["Every storm runs out of rain.", "You are stronger than you think."],
+                "happy": ["Happiness depends upon ourselves.", "Smile, it makes life beautiful."],
+                "motivation": ["Push yourself because no one else will do it for you.", "Dream big and dare to fail."]
+            }
+
+        if mood in quotes and quotes[mood]:
+            quote = random.choice(quotes[mood])
+        else:
+            quote = "Stay positive and keep moving forward."
+
+        dispatcher.utter_message(text=quote)
+
+        return []
+

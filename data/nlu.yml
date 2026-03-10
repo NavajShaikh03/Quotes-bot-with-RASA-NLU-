@@ -1,0 +1,108 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hi
+      - hello
+      - hey
+      - good morning
+      - good afternoon
+      - good evening
+      - hi there
+      - hello there
+      - hey there
+      - howdy
+      - hiya
+      - greeting
+      - good to see you
+      - nice to meet you
+      - what's up
+      - yo
+      - hey bot
+
+  - intent: emotion_sad
+    examples: |
+      - sad
+      - I am sad
+      - I'm sad today
+      - I feel down
+      - I'm feeling depressed
+      - I'm unhappy
+      - I feel anxious
+      - I'm stressed
+      - I feel lonely
+      - I'm worried
+      - I'm tired and upset
+      - I feel miserable
+
+  - intent: emotion_happy
+    examples: |
+      - happy
+      - I am happy
+      - I'm feeling great
+      - I feel wonderful
+      - I'm excited
+      - I'm joyful today
+      - I'm in a good mood
+      - I feel amazing
+      - I'm grateful
+      - I'm feeling fantastic
+      - life is good
+      - I'm so thrilled
+
+  - intent: emotion_motivation
+    examples: |
+      - motivate me
+      - I need motivation
+      - I need some motivation
+      - inspire me
+      - I need inspiration
+      - give me a motivational quote
+      - encourage me
+      - I need encouragement
+      - boost my motivation
+      - I want to achieve my goals
+      - I need to focus
+      - help me stay motivated
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you later
+      - see ya
+      - take care
+      - bye bye
+      - farewell
+      - good night
+      - talk to you later
+      - catch you later
+      - I have to go
+      - see you
+
+  - intent: affirm
+    examples: |
+      - yes
+      - sure
+      - okay
+      - yes please
+      - of course
+      - definitely
+      - absolutely
+      - that sounds good
+      - yup
+      - yeah
+
+  - intent: deny
+    examples: |
+      - no
+      - nope
+      - not really
+      - no thanks
+      - I don't think so
+      - probably not
+      - maybe later
+      - nah
+      - not now
+      - no way
