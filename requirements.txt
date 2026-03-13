@@ -1,5 +1,7 @@
 # RASA Chatbot Dependencies
 
+setuptools
+rasa==3.6.16
 # Core RASA
 rasa==3.6.16
 rasa-sdk==3.6.2
